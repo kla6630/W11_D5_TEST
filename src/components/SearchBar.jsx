@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Container, Button } from "react-bootstrap";
 
 function SearchBar({ initialValue, onSearch }) {
   const [searchValue, setSearchValue] = useState(initialValue);

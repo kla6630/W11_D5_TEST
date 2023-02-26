@@ -3,15 +3,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 //SHARED COMPONENTS//
-import SidebarVertical from "./components/SidebarVertical";
+import SidebarVertical from "./components/LeftSidebar";
 import NavBarTop from "./components/NavBarTop";
 import NavBarFlexBottom from "./components/NavBarFlexBottom";
 
 //PAGES//
-import HomePage from "./components/HomePage";
+import HomeFetch from "./components/HomePage";
 import AlbumPage from "./components/AlbumPage";
 import ArtistPage from "./components/ArtistPage";
-import SongDetails from "./components/SongDetails";
+
 
 const App = () => (
   <>
@@ -19,8 +19,9 @@ const App = () => (
     <Container>
       <BrowserRouter>
         <NavBarTop />
+        
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomeFetch />} />
           <Route path="/album/:id" element={<AlbumPage />} />
           <Route path="/artist/:id" element={<ArtistPage />} />
         </Routes>

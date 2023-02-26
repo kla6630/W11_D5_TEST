@@ -1,8 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit'
-import mainReducer from '../reducers'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+
+import MainReducer from "../reducers";
+
+const rootReducer = combineReducers({
+  redBasic: MainReducer,
+});
 
 const store = configureStore({
-  reducer: mainReducer,
-})
+  reducer: rootReducer,
+});
 
-export default store
+export default store;
+
+
+
+
+
+
+
+
+

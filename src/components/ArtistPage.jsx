@@ -1,17 +1,6 @@
-import { Row, Col, Container, Image} from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 
-
-
-
-const ArtistPage = () => {
-  return (
-    <>
-    </>
-  );
-};
+const ArtistPage = () => {};
 
 export default ArtistPage;
-
-
-
-

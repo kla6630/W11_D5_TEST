@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import SearchBar from "./SearchBar";
@@ -30,34 +31,38 @@ const SearchResultPageFetch = () => {
 
   return (
     <>
-      <Container>
-        <SearchBar placeholder="Search" onSearch={handleSearch} />
-      </Container>
-      {songInfo.length > 0 && (
-        <Container>
-          <Row>
-            {songInfo.map((song) => (
-              <Col key={song.id} xs={12} md={4} className="mb-3">
-                <div className="text-center">
-                  <a href={`/album_page.html?id=${song.album.id}`}>
-                    <img className="img-fluid" src={song.album.cover_medium} alt={song.album.title} />
-                  </a>
-                  <p>
-                    <a href={`/album_page.html?id=${song.album.id}`}>
-                      Album:{" "}
-                      {song.album.title.length < 16 ? song.album.title : `${song.album.title.substring(0, 16)}...`}
-                    </a>
-                  </p>
-                  <p>
-                    <a href={`/artist_page.html?id=${song.artist.id}`}>Artist: {song.artist.name}</a>
-                  </p>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      )}
-      {isLoading && <div>Loading...</div>}
+      
+        
+          <Col>
+            <div id="rock">
+              <SearchBar onSearch={handleSearch} />
+
+              <h2 className="search_title">Search Results</h2>
+              {songInfo.length > 0 && (
+                <Row>
+                  {songInfo.map((song) => (
+                    <Col key={song.id} xs={12} md={3} className="mb-3">
+                      <div className="text-center">
+                        <Link to={`/album/${song.album.id}`}>
+                          <img className="img-fluid" src={song.album.cover_medium} alt={song.album.title} />
+                        </Link>
+                        <p>
+                          <Link to={`/album/${song.album.id}`}>
+                            Album: {song.album.title.length ? song.album.title : `${song.album.title}...`}
+                          </Link>
+                        </p>
+                        <p>
+                          <Link to={`/artist/${song.artist.id}`}>Artist: {song.artist.name}</Link>
+                        </p>
+                      </div>
+                    </Col>
+                  ))}
+                </Row>
+              )}
+              {isLoading && <div>Loading...</div>}
+            </div>
+          </Col>
+      
     </>
   );
 };

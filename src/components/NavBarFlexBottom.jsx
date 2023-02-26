@@ -1,7 +1,5 @@
-import { Row, Col, Container, Image} from "react-bootstrap";
+import { Row, Col, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { FaHome } from "react-icons/fa";
-// import { BsFillBookFill } from "react-icons/bs";
 
 import PlayButton from "../assets/img/playerbuttons/Play.png";
 import NextButton from "../assets/img/playerbuttons/Next.png";
@@ -17,26 +15,26 @@ const NavBarFlexBottom = () => {
           <Row>
             <Col className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1">
               <Row className="pulsanti">
-                <a href="#">
+                <Link to="#">
                   <Image src={ShuffleButton} alt="shuffle" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <Image src={PreviousButton} alt="previous" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <Image src={PlayButton} alt="shuffle" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <Image src={NextButton} alt="shuffle" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <Image src={RepeatButton} alt="shuffle" />
-                </a>
+                </Link>
               </Row>
             </Col>
           </Row>
           <Row className="justify-content-center playBar py-3">
-            <div className="col-8 col-md-6">
+            <Col className="col-8 col-md-6">
               <div className="progress">
                 <div
                   className="progress-bar"
@@ -46,7 +44,7 @@ const NavBarFlexBottom = () => {
                   aria-valuemax="100"
                 ></div>
               </div>
-            </div>
+            </Col>
           </Row>
         </Col>
       </Row>
