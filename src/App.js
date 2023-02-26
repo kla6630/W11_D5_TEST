@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//SHARED COMPONENTS//
+import SidebarVertical from "./components/SidebarVertical";
+import NavBarTop from "./components/NavBarTop";
+import NavBarFlexBottom from "./components/NavBarFlexBottom";
+
+//PAGES//
+import HomePage from "./components/HomePage";
+import AlbumPage from "./components/AlbumPage";
+import ArtistPage from "./components/ArtistPage";
+import SongDetails from "./components/SongDetails";
+
+const App = () => (
+  <>
+    <SidebarVertical />
+    <Container>
+      <BrowserRouter>
+        <NavBarTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/album/:id" element={<AlbumPage />} />
+          <Route path="/artist/:id" element={<ArtistPage />} />
+        </Routes>
+        <NavBarFlexBottom />
+      </BrowserRouter>
+    </Container>
+  </>
+);
 
 export default App;
